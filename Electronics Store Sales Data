@@ -1,4 +1,4 @@
-# In this project, I queried data for an electronics store's sales.
+# In this SQL, I'm querying an electronics store's database with multiple tables to quantify statistics about customers and order data.
 
 #1. How many sales were there in January?  This query accounted for unclean data in the Order ID column.
 'Select orderID
