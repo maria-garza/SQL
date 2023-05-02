@@ -1,0 +1,45 @@
+# For this project, I downloaded Spotify top 50 data from Kaggle. 
+#I added a table to BIT_DB database.
+# Finally, I performed analytics on the data using SQL.
+
+# This is how I added the table into the database:
+'CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );'
+
+# I then imported the table as a .CSV file. 
+
+# I explored the data using the following SQL:
+
+# I was most curious about which artist had the most amount of songs on Spotify's top 50. 
+'select artist_name, count(track_id) as Number_of_tracks
+from BIT_DB.Spotifydata
+group by artist_name
+order by Nunber_of_tracks desc;'
+
+# Next, I wanted to find what were the top 5 songs based on popularity.
+'select artist_name, track_name, popularity
+from BIT_DB.Spotifydata
+ORDER BY popularity desc
+limit 5'
+
+# I was curious what the average popularity and average danceablitity was by artist, so I wrote the following script:
+'select artist_name, avg(popularity), avg(danceability)
+from BIT_DB.Spotifydata
+group by artist_name;'
