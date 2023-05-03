@@ -1,3 +1,5 @@
+# For this project, I added a table to a database, and queried the table containing furniture store sales using SQL.
+
 ``CREATE TABLE sales(
   ID INTEGER  NOT NULL PRIMARY KEY
 , transaction_date TEXT
